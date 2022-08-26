@@ -26,9 +26,11 @@
           <% for(let i=0; i < items.length; i++) {%>
           <li class="item">
             <% if(items[i].completed === true) {%>
-            <span class="completed"><%= items[i].thing %></span>
+            <span class="completed"
+              ><%= items[i].thing %><%= items[i].dueDate %></span
+            >
             <% }else{ %>
-            <span><%= items[i].thing %></span>
+            <span><%= items[i].thing %><%= items[i].dueDate %></span>
             <% } %>
             <span class="fa fa-trash"></span>
           </li>
@@ -41,6 +43,11 @@
 
         <form action="/addTodo" method="POST">
           <input type="text" placeholder="Thing To Do" name="todoItem" />
+          <input
+            type="datetime-local"
+            placeholder="Thing To Do"
+            name="addDate"
+          />
           <input type="submit" />
         </form>
 

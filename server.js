@@ -36,7 +36,8 @@ app.get('/',async (request, response)=>{
 })
 
 app.post('/addTodo', (request, response) => {
-    db.collection('todos').insertOne({thing: request.body.todoItem, completed: false})
+    db.collection('todos').insertOne({thing: request.body.todoItem, dueDate: request.body.addDate, completed: false
+    })
     .then(result => {
         console.log('Todo Added')
         response.redirect('/')
